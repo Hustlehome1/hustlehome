@@ -1,0 +1,432 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * HustleHome — globals.css
+ * Design tokens only, driven by DESIGN.md. Tailwind theme
+ * (tailwind.config.ts) is the source of truth for utilities; these custom
+ * properties mirror the tokens for use in raw CSS.
+ */
+
+:root {
+  --void: #000000;
+  --graphite: #0d0d0d;
+  --iron: #1a1a1a;
+  --white: #ffffff;
+  --bone: #e8e8e8;
+  --ash: #8a8a8a;
+  --lime: #c7ff3a;
+
+  /* §2 Type — families bound via next/font in app/layout.tsx.
+     --font-space-grotesk / --font-inter / --font-jetbrains-mono injected there. */
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--void);
+    color: var(--bone);
+    font-family: var(--font-inter), system-ui, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--lime);
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  /* ---- Primary CTA — lime border/text on black; fills lime on hover. -- */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    background-color: transparent;
+    color: var(--lime);
+    font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+    font-size: 0.9375rem;
+    letter-spacing: 0.01em;
+    padding: 0.85rem 1.5rem;
+    border: 1px solid var(--lime);
+    transition: background-color 180ms ease, color 180ms ease, box-shadow 180ms ease;
+  }
+  .btn-primary:hover,
+  .btn-primary:focus-visible {
+    background-color: var(--lime);
+    color: var(--void);
+    box-shadow: 0 0 20px rgba(199, 255, 58, 0.3);
+  }
+
+  /* ---- Trustpilot pill — black bg, lime border/text; fills lime on hover. */
+  .btn-trustpilot {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--void);
+    color: var(--lime);
+    font-family: var(--font-inter), system-ui, sans-serif;
+    font-weight: 500;
+    font-size: 0.875rem;
+    padding: 0.625rem 1rem;
+    border: 1px solid var(--lime);
+    border-radius: 9999px;
+    transition: background-color 180ms ease, color 180ms ease;
+  }
+  .btn-trustpilot:hover,
+  .btn-trustpilot:focus-visible {
+    background-color: var(--lime);
+    color: var(--void);
+  }
+
+  /* ---- Secondary CTA — text-only, animated underline. ---------------- */
+  .btn-underline {
+    position: relative;
+    font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+    font-size: 0.9375rem;
+    letter-spacing: 0.01em;
+    color: var(--bone);
+    padding: 0.85rem 0.15rem;
+    transition: color 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .btn-underline::after {
+    content: "";
+    position: absolute;
+    left: 0.15rem;
+    right: 0.15rem;
+    bottom: 0.6rem;
+    height: 1px;
+    background-color: var(--lime);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .btn-underline:hover,
+  .btn-underline:focus-visible {
+    color: var(--lime);
+  }
+  .btn-underline:hover::after,
+  .btn-underline:focus-visible::after {
+    transform: scaleX(1);
+  }
+
+  /* ---- Nav link — same underline language, permanent on active route. */
+  .nav-link {
+    position: relative;
+    padding-bottom: 0.4rem;
+    transition: color 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background-color: var(--lime);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .nav-link:hover,
+  .nav-link:focus-visible {
+    color: var(--lime);
+  }
+  .nav-link:hover::after,
+  .nav-link:focus-visible::after {
+    transform: scaleX(1);
+  }
+  .nav-link-active {
+    color: var(--lime);
+  }
+  .nav-link-active::after {
+    transform: scaleX(1);
+  }
+
+  .site-header {
+    transition: background-color 200ms ease, border-color 200ms ease;
+  }
+
+  /* ---- Category tile — image zoom, lime border draw, arrow reveal. --- */
+  .category-tile {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid transparent;
+    transition: border-color 300ms ease;
+  }
+  .category-tile:hover,
+  .category-tile:focus-visible {
+    border-color: var(--lime);
+  }
+  .category-tile img {
+    transition: transform 400ms ease;
+  }
+  .category-tile:hover img,
+  .category-tile:focus-visible img {
+    transform: scale(1.03);
+  }
+  .category-tile .tile-reveal {
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 250ms ease, transform 250ms ease;
+  }
+  .category-tile:hover .tile-reveal,
+  .category-tile:focus-visible .tile-reveal {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ---- Coming-soon tile — static placeholder, not clickable. --------- */
+  .category-tile-soon {
+    cursor: default;
+    transition: box-shadow 300ms ease;
+  }
+  .category-tile-soon:hover {
+    box-shadow: 0 0 0 1px rgba(199, 255, 58, 0.25) inset;
+  }
+
+  /* ---- Product card — hairline border, lime on price/verified tick. -- */
+  .product-card {
+    border: 1px solid var(--iron);
+    background-color: var(--graphite);
+    transition: border-color 200ms ease;
+  }
+  .product-card:hover {
+    border-color: var(--lime);
+  }
+
+  /* ---- Marquee ticker — continuous scroll, pauses on hover. ---------- */
+  .marquee-track {
+    animation: marquee 40s linear infinite;
+  }
+  .marquee-pause:hover .marquee-track {
+    animation-play-state: paused;
+  }
+
+  /* ---- FAQ row — smooth grid-rows expand, +/× icon rotates. ---------- */
+  .faq-row {
+    transition: background-color 200ms ease;
+  }
+  .faq-row:hover {
+    background-color: rgba(199, 255, 58, 0.04);
+  }
+  .faq-panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .faq-panel[data-open="true"] {
+    grid-template-rows: 1fr;
+  }
+  .faq-panel > div {
+    overflow: hidden;
+  }
+  .faq-icon {
+    transition: transform 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .faq-icon[data-open="true"] {
+    transform: rotate(45deg);
+  }
+
+  /* ---- Review screenshot — lime border + lift on hover. --------------- */
+  .review-shot {
+    border: 1px solid var(--iron);
+    background-color: var(--graphite);
+    transition: border-color 200ms ease, transform 200ms ease;
+  }
+  .review-shot:hover {
+    border-color: var(--lime);
+    transform: translateY(-2px);
+  }
+
+  /* ---- Live-state dot — the one continuous UI animation besides the
+     snake background. ---------------------------------------------------- */
+  .live-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background-color: var(--lime);
+    animation: pulseDot 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+
+  /* ---- Cart badge — small scale bounce when the count goes up. ------- */
+  .cart-badge {
+    transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .cart-badge.bump {
+    transform: scale(1.25);
+  }
+
+  /* ---- Cart backdrop — click-to-close scrim behind the drawer. ------- */
+  .cart-backdrop {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 300ms ease;
+  }
+  .cart-backdrop.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* ---- Cart drawer — slides in from the right. ------------------------ */
+  .cart-drawer {
+    transform: translateX(100%);
+    pointer-events: none;
+    transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .cart-drawer.open {
+    transform: translateX(0);
+    pointer-events: auto;
+  }
+
+  /* ---- Checkout button — perimeter snake loop; fills lime on hover. -- */
+  .btn-checkout {
+    transition: background-color 200ms ease, color 200ms ease;
+  }
+  .btn-checkout:hover,
+  .btn-checkout:focus-visible {
+    background-color: var(--lime);
+    color: var(--void);
+  }
+  .btn-checkout-static {
+    box-shadow: 0 0 16px rgba(199, 255, 58, 0.35);
+  }
+
+  /* ---- Hero entrance — one orchestrated fade-up sequence on load. ----- */
+  .hero-fade-1 {
+    animation: fadeUp 600ms cubic-bezier(0.4, 0, 0.2, 1) both;
+  }
+  .hero-fade-2 {
+    animation: fadeUp 600ms cubic-bezier(0.4, 0, 0.2, 1) 150ms both;
+  }
+  .hero-fade-3 {
+    animation: fadeUp 600ms cubic-bezier(0.4, 0, 0.2, 1) 300ms both;
+  }
+  .hero-fade-4 {
+    animation: fadeUp 600ms cubic-bezier(0.4, 0, 0.2, 1) 450ms both;
+  }
+
+  /* ---- Add-to-cart pulse — brief lime glow on click. ------------------ */
+  .btn-add-pulse {
+    animation: addPulse 400ms ease-out;
+  }
+
+  /* ---- Purchase toast — slides in from bottom-left, fades. ------------ */
+  .purchase-toast {
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: transform 350ms cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 350ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .purchase-toast.open {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  .purchase-toast.closing {
+    transition-duration: 300ms;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes pulseDot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes addPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(199, 255, 58, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 0 10px rgba(199, 255, 58, 0);
+  }
+}
+
+/* All motion is optional — honor the OS setting. Everything collapses to
+   an instant state change: no transforms, no transitions, no animation. */
+@media (prefers-reduced-motion: reduce) {
+  .btn-primary,
+  .btn-trustpilot,
+  .btn-underline,
+  .btn-underline::after,
+  .nav-link,
+  .nav-link::after,
+  .site-header,
+  .category-tile,
+  .category-tile img,
+  .category-tile .tile-reveal,
+  .category-tile-soon,
+  .product-card,
+  .faq-row,
+  .faq-panel,
+  .faq-icon,
+  .review-shot,
+  .cart-badge,
+  .cart-backdrop,
+  .cart-drawer,
+  .btn-checkout {
+    transition: none;
+  }
+  .btn-underline::after {
+    transform: scaleX(1);
+  }
+  .category-tile:hover img,
+  .category-tile:focus-visible img {
+    transform: none;
+  }
+  .review-shot:hover {
+    transform: none;
+  }
+  .marquee-track {
+    animation: none;
+  }
+  .live-dot,
+  .hero-fade-1,
+  .hero-fade-2,
+  .hero-fade-3,
+  .hero-fade-4,
+  .btn-add-pulse {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Purchase toast keeps its fade under reduced motion — just no slide. The
+   cursor snake skips rendering entirely instead (see CursorSnake.tsx). */
+@media (prefers-reduced-motion: reduce) {
+  .purchase-toast,
+  .purchase-toast.open,
+  .purchase-toast.closing {
+    transform: none;
+  }
+}

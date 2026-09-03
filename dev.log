@@ -1,0 +1,88 @@
+
+> hustlehome@0.1.0 dev
+> next dev
+
+  ▲ Next.js 14.2.35
+  - Local:        http://localhost:3000
+
+ ✓ Starting...
+ ✓ Ready in 1458ms
+ ○ Compiling / ...
+ ✓ Compiled / in 2.4s (617 modules)
+ GET / 200 in 2535ms
+ ○ Compiling /checkout ...
+ ✓ Compiled /checkout in 1487ms (596 modules)
+ GET /checkout 200 in 1586ms
+ GET /checkout 200 in 54ms
+ ✓ Compiled in 208ms (556 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /checkout 200 in 98ms
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ✓ Compiled in 130ms (556 modules)
+ GET /checkout 200 in 151ms
+ ✓ Compiled in 121ms (556 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /checkout 200 in 52ms
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ✓ Compiled in 140ms (556 modules)
+ GET /checkout 200 in 142ms
+ ✓ Compiled in 125ms (556 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /checkout 200 in 92ms
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ✓ Compiled in 134ms (556 modules)
+ GET /checkout 200 in 97ms
+ ✓ Compiled in 361ms (570 modules)
+ ✓ Compiled in 193ms (570 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 235ms (570 modules)
+ ⨯ app\checkout\page.tsx (31:42) @ useCart
+ ⨯ ReferenceError: useCart is not defined
+    at CheckoutPage (./app/checkout/page.tsx:39:44)
+digest: "3067095302"
+[0m [90m 29 |[39m[0m
+[0m [90m 30 |[39m [36mexport[39m [36mdefault[39m [36mfunction[39m [33mCheckoutPage[39m() {[0m
+[0m[31m[1m>[22m[39m[90m 31 |[39m   [36mconst[39m { items[33m,[39m subtotal[33m,[39m clearCart } [33m=[39m useCart()[33m;[39m[0m
+[0m [90m    |[39m                                          [31m[1m^[22m[39m[0m
+[0m [90m 32 |[39m   [36mconst[39m [orderNumber[33m,[39m setOrderNumber] [33m=[39m useState[33m<[39m[33mstring[39m [33m|[39m [36mnull[39m[33m>[39m([36mnull[39m)[33m;[39m[0m
+[0m [90m 33 |[39m[0m
+[0m [90m 34 |[39m   [36mfunction[39m handleSubmit(e[33m:[39m [33mFormEvent[39m[33m<[39m[33mHTMLFormElement[39m[33m>[39m) {[0m
+ GET /checkout 500 in 159ms
+ ✓ Compiled in 130ms (570 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /checkout 200 in 46ms
+ GET /checkout 200 in 32ms
+ ✓ Compiled / in 69ms (302 modules)
+ GET / 200 in 176ms
+ ✓ Compiled /_not-found in 122ms (585 modules)
+ GET /images/categories/cat-dyson.jpg 404 in 232ms
+ ⨯ The requested resource isn't a valid image for /images/categories/cat-dyson.jpg received null
+ GET /images/categories/cat-ps5.jpg 404 in 232ms
+ ⨯ The requested resource isn't a valid image for /images/categories/cat-ps5.jpg received null
+ GET /images/categories/cat-bmw.jpg 404 in 234ms
+ ⨯ The requested resource isn't a valid image for /images/categories/cat-bmw.jpg received null
+ GET /images/categories/cat-google-cards.jpg 404 in 235ms
+ ⨯ The requested resource isn't a valid image for /images/categories/cat-google-cards.jpg received null
+ GET /images/categories/cat-asics.jpg 404 in 237ms
+ ⨯ The requested resource isn't a valid image for /images/categories/cat-asics.jpg received null
+ GET /images/categories/cat-accessories.jpg 404 in 238ms
+ ⨯ The requested resource isn't a valid image for /images/categories/cat-accessories.jpg received null
+ GET /checkout 200 in 57ms
+ GET /checkout 200 in 77ms
+ GET /checkout 200 in 49ms
+ GET / 200 in 53ms
+ GET /checkout 200 in 56ms
+ GET / 200 in 76ms
+ GET /images/categories/cat-dyson.jpg 404 in 30ms
+ ⨯ The requested resource isn't a valid image for /images/categories/cat-dyson.jpg received null
+ GET /images/categories/cat-ps5.jpg 404 in 31ms
+ ⨯ The requested resource isn't a valid image for /images/categories/cat-ps5.jpg received null
+ GET /images/categories/cat-bmw.jpg 404 in 31ms
+ ⨯ The requested resource isn't a valid image for /images/categories/cat-bmw.jpg received null
+ GET /images/categories/cat-asics.jpg 404 in 32ms
+ ⨯ The requested resource isn't a valid image for /images/categories/cat-asics.jpg received null
+ GET /images/categories/cat-google-cards.jpg 404 in 31ms
+ ⨯ The requested resource isn't a valid image for /images/categories/cat-google-cards.jpg received null
+ GET /images/categories/cat-accessories.jpg 404 in 10ms
+ ⨯ The requested resource isn't a valid image for /images/categories/cat-accessories.jpg received null
+ ✓ Compiled /products in 293ms (592 modules)
