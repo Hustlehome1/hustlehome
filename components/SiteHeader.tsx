@@ -108,47 +108,48 @@ export default function SiteHeader() {
         </div>
       </div>
 
-      <div
-        id="mobile-nav"
-        hidden={!open}
-        onClick={(e) => {
-          // Tap on empty space (not a link/button) closes the menu, same as
-          // tapping a backdrop would.
-          if (e.target === e.currentTarget) setOpen(false);
-        }}
-        className="fixed inset-0 z-[65] flex flex-col bg-void pb-[env(safe-area-inset-bottom)] pt-[env(safe-area-inset-top)] md:hidden"
-      >
-        <div className="mx-auto flex w-full max-w-[1280px] items-center justify-between px-5 py-4 sm:px-8">
-          <span className="relative block h-9 w-[66px]">
-            <Image src="/images/logo.png" alt="HustleHome" fill sizes="66px" className="object-contain object-left" />
-          </span>
-          <button
-            type="button"
-            onClick={() => setOpen(false)}
-            className="flex min-h-[44px] min-w-[44px] items-center justify-center font-mono text-meta uppercase tracking-wide text-bone transition-colors hover:text-lime"
-          >
-            Close
-          </button>
+      {open && (
+        <div
+          id="mobile-nav"
+          onClick={(e) => {
+            // Tap on empty space (not a link/button) closes the menu, same as
+            // tapping a backdrop would.
+            if (e.target === e.currentTarget) setOpen(false);
+          }}
+          className="fixed inset-0 z-[65] flex flex-col bg-void pb-[env(safe-area-inset-bottom)] pt-[env(safe-area-inset-top)] md:hidden"
+        >
+          <div className="mx-auto flex w-full max-w-[1280px] items-center justify-between px-5 py-4 sm:px-8">
+            <span className="relative block h-9 w-[66px]">
+              <Image src="/images/logo.png" alt="HustleHome" fill sizes="66px" className="object-contain object-left" />
+            </span>
+            <button
+              type="button"
+              onClick={() => setOpen(false)}
+              className="flex min-h-[44px] min-w-[44px] items-center justify-center font-mono text-meta uppercase tracking-wide text-bone transition-colors hover:text-lime"
+            >
+              Close
+            </button>
+          </div>
+          <nav aria-label="Mobile" className="flex flex-1 flex-col items-start justify-center gap-8 px-8">
+            {NAV_LINKS.map((link) => {
+              const active = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  aria-current={active ? "page" : undefined}
+                  onClick={handleNavClick}
+                  className={`nav-link font-display text-display-sm ${
+                    active ? "nav-link-active text-lime" : "text-bone"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+          </nav>
         </div>
-        <nav aria-label="Mobile" className="flex flex-1 flex-col items-start justify-center gap-8 px-8">
-          {NAV_LINKS.map((link) => {
-            const active = pathname === link.href;
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                aria-current={active ? "page" : undefined}
-                onClick={handleNavClick}
-                className={`nav-link font-display text-display-sm ${
-                  active ? "nav-link-active text-lime" : "text-bone"
-                }`}
-              >
-                {link.label}
-              </Link>
-            );
-          })}
-        </nav>
-      </div>
+      )}
     </header>
   );
 }
