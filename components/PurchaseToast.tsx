@@ -131,7 +131,7 @@ export default function PurchaseToast() {
     <div
       role="status"
       aria-live="polite"
-      className={`purchase-toast pointer-events-none fixed bottom-4 left-4 z-[58] w-[min(340px,calc(100vw-32px))] border-t border-r border-b border-iron border-l-4 border-l-lime bg-graphite px-4 py-[14px] sm:bottom-6 sm:left-6 ${
+      className={`purchase-toast pointer-events-none fixed bottom-[calc(16px+env(safe-area-inset-bottom))] left-4 z-[58] w-[min(340px,calc(100vw-32px))] border-t border-r border-b border-iron border-l-4 border-l-lime bg-graphite px-4 py-[14px] sm:bottom-[calc(24px+env(safe-area-inset-bottom))] sm:left-6 ${
         phase === "open" ? "open" : phase === "closing" ? "closing" : ""
       }`}
     >

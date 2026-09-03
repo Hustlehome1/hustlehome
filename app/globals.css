@@ -26,6 +26,9 @@
   html {
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    /* Belt-and-braces: nothing on the site should ever need to scroll the
+       page sideways, on any viewport. */
+    overflow-x: hidden;
   }
 
   body {
@@ -34,6 +37,7 @@
     font-family: var(--font-inter), system-ui, sans-serif;
     font-size: 1rem;
     line-height: 1.6;
+    overflow-x: hidden;
   }
 
   :focus-visible {
@@ -47,12 +51,14 @@
   .btn-primary {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     background-color: transparent;
     color: var(--lime);
     font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
-    font-size: 0.9375rem;
+    font-size: 1rem;
     letter-spacing: 0.01em;
     padding: 0.85rem 1.5rem;
+    min-height: 48px;
     border: 1px solid var(--lime);
     transition: background-color 180ms ease, color 180ms ease, box-shadow 180ms ease;
   }
@@ -87,11 +93,12 @@
   /* ---- Secondary CTA — text-only, animated underline. ---------------- */
   .btn-underline {
     position: relative;
+    display: inline-block;
     font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
     font-size: 0.9375rem;
     letter-spacing: 0.01em;
     color: var(--bone);
-    padding: 0.85rem 0.15rem;
+    padding: 1rem 0.15rem;
     transition: color 200ms cubic-bezier(0.4, 0, 0.2, 1);
   }
   .btn-underline::after {
@@ -295,6 +302,24 @@
   }
   .btn-checkout-static {
     box-shadow: 0 0 16px rgba(199, 255, 58, 0.35);
+  }
+
+  /* ---- Hero full-bleed height — dvh where supported so iOS Safari's
+     address bar doesn't clip the fold; unsupported browsers keep the vh
+     declaration since an invalid value is simply ignored, not applied. --- */
+  .hero-min-h {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  /* ---- Horizontal scroll rows — momentum scroll, hidden scrollbar. ---- */
+  .scroll-snap-row {
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .scroll-snap-row::-webkit-scrollbar {
+    display: none;
   }
 
   /* ---- Hero entrance — one orchestrated fade-up sequence on load. ----- */

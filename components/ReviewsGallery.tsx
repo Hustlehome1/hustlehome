@@ -52,10 +52,26 @@ export default function ReviewsGallery() {
       if (e.key === "Escape") setOpenId(null);
     };
     window.addEventListener("keydown", onKey);
-    document.body.style.overflow = "hidden";
+
+    // Same fix as the mobile nav: pin body to the current scroll position
+    // rather than just `overflow: hidden`, so the fixed lightbox stays
+    // tappable on iOS Safari after the masonry grid has been scrolled.
+    const scrollY = window.scrollY;
+    const { body } = document;
+    body.style.position = "fixed";
+    body.style.top = `-${scrollY}px`;
+    body.style.left = "0";
+    body.style.right = "0";
+    body.style.overflow = "hidden";
+
     return () => {
       window.removeEventListener("keydown", onKey);
-      document.body.style.overflow = "";
+      body.style.position = "";
+      body.style.top = "";
+      body.style.left = "";
+      body.style.right = "";
+      body.style.overflow = "";
+      window.scrollTo(0, scrollY);
     };
   }, [openShot]);
 
@@ -85,6 +101,17 @@ export default function ReviewsGallery() {
           className="fixed inset-0 z-[100] flex items-center justify-center bg-void/90 p-6"
           onClick={() => setOpenId(null)}
         >
+          <button
+            type="button"
+            onClick={() => setOpenId(null)}
+            aria-label="Close"
+            className="fixed right-3 top-[calc(0.75rem+env(safe-area-inset-top))] z-[101] flex min-h-[48px] min-w-[48px] items-center justify-center text-bone hover:text-lime sm:right-6 sm:top-6"
+          >
+            <svg viewBox="0 0 24 24" width={22} height={22} fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+              <line x1="6" y1="6" x2="18" y2="18" strokeLinecap="round" />
+              <line x1="18" y1="6" x2="6" y2="18" strokeLinecap="round" />
+            </svg>
+          </button>
           <div
             className="relative max-h-full max-w-full"
             onClick={(e) => e.stopPropagation()}
@@ -97,13 +124,6 @@ export default function ReviewsGallery() {
               sizes="100vw"
               className="max-h-[90vh] w-auto max-w-full object-contain"
             />
-            <button
-              type="button"
-              onClick={() => setOpenId(null)}
-              className="absolute -top-10 right-0 font-mono text-meta uppercase tracking-wide text-bone hover:text-lime"
-            >
-              Close (Esc)
-            </button>
           </div>
         </div>
       )}

@@ -193,7 +193,12 @@ export default function SnakeBackground() {
     if (!ctx) return;
 
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    // Long slithering canvas animations are the single heaviest thing on
+    // the page for mobile GPUs — fewer snakes and a capped DPR keep frame
+    // time sane on phones without changing how the desktop version looks.
+    const isMobile = window.innerWidth < 768;
+    const dpr = Math.min(window.devicePixelRatio || 1, isMobile ? 1 : 2);
+    const snakeCount = isMobile ? 2 : SNAKE_COUNT;
 
     let width = window.innerWidth;
     let height = window.innerHeight;
@@ -226,7 +231,7 @@ export default function SnakeBackground() {
     }
 
     resizeCanvas();
-    let snakes = Array.from({ length: SNAKE_COUNT }, () =>
+    let snakes = Array.from({ length: snakeCount }, () =>
       makeSnake(width, height, performance.now())
     );
     let raf = 0;

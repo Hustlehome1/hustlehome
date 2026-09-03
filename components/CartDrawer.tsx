@@ -24,14 +24,31 @@ export default function CartDrawer() {
 
   useEffect(() => {
     if (!isOpen) return;
-    document.body.style.overflow = "hidden";
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") closeCart();
     };
     window.addEventListener("keydown", onKeyDown);
+
+    // Pin body to the current scroll position rather than just
+    // `overflow: hidden` — plain overflow-hidden lets a fixed drawer's hit
+    // area desync from where it's painted on iOS Safari once the page has
+    // been scrolled, which reads as "taps do nothing."
+    const scrollY = window.scrollY;
+    const { body } = document;
+    body.style.position = "fixed";
+    body.style.top = `-${scrollY}px`;
+    body.style.left = "0";
+    body.style.right = "0";
+    body.style.overflow = "hidden";
+
     return () => {
-      document.body.style.overflow = "";
       window.removeEventListener("keydown", onKeyDown);
+      body.style.position = "";
+      body.style.top = "";
+      body.style.left = "";
+      body.style.right = "";
+      body.style.overflow = "";
+      window.scrollTo(0, scrollY);
     };
   }, [isOpen, closeCart]);
 
@@ -67,7 +84,7 @@ export default function CartDrawer() {
             type="button"
             onClick={closeCart}
             aria-label="Close cart"
-            className="font-mono text-body text-bone transition-colors hover:text-lime"
+            className="-mr-2.5 flex min-h-[44px] min-w-[44px] items-center justify-center font-mono text-body text-bone transition-colors hover:text-lime"
           >
             ✕
           </button>
@@ -108,12 +125,12 @@ export default function CartDrawer() {
                       <p className="mt-1 font-mono text-body-sm text-lime">
                         {formatPrice(product.priceCents)}
                       </p>
-                      <div className="mt-2 flex items-center gap-3 font-mono text-body-sm">
+                      <div className="-ml-2.5 mt-1 flex items-center gap-1 font-mono text-body-sm">
                         <button
                           type="button"
                           onClick={() => decrementItem(product.id)}
                           aria-label={`Decrease quantity of ${product.name}`}
-                          className="text-ash transition-colors hover:text-lime"
+                          className="flex min-h-[44px] min-w-[36px] items-center justify-center text-ash transition-colors hover:text-lime"
                         >
                           −
                         </button>
@@ -122,7 +139,7 @@ export default function CartDrawer() {
                           type="button"
                           onClick={() => incrementItem(product.id)}
                           aria-label={`Increase quantity of ${product.name}`}
-                          className="text-ash transition-colors hover:text-lime"
+                          className="flex min-h-[44px] min-w-[36px] items-center justify-center text-ash transition-colors hover:text-lime"
                         >
                           +
                         </button>
@@ -132,7 +149,7 @@ export default function CartDrawer() {
                       type="button"
                       onClick={() => removeItem(product.id)}
                       aria-label={`Remove ${product.name} from cart`}
-                      className="shrink-0 self-start font-mono text-body-sm text-ash transition-colors hover:text-lime"
+                      className="-mr-2 -mt-2 flex min-h-[44px] min-w-[44px] shrink-0 items-center justify-center self-start font-mono text-body-sm text-ash transition-colors hover:text-lime"
                     >
                       ✕
                     </button>
@@ -141,12 +158,15 @@ export default function CartDrawer() {
               </ul>
             </div>
 
-            <div className="shrink-0 border-t border-iron px-6 py-5">
+            <div className="shrink-0 border-t border-iron px-6 pb-[calc(1.25rem+env(safe-area-inset-bottom))] pt-5">
               <div className="flex items-center justify-between font-mono text-body-sm text-bone">
                 <span>Subtotal</span>
                 <span className="text-lime">{formatPrice(subtotalCents)}</span>
               </div>
-              <SnakeCheckoutButton onClick={handleCheckout} className="mt-4 w-full justify-center">
+              <SnakeCheckoutButton
+                onClick={handleCheckout}
+                className="mt-4 min-h-[56px] w-full justify-center"
+              >
                 Checkout
               </SnakeCheckoutButton>
             </div>

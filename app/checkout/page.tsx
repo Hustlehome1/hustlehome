@@ -12,7 +12,9 @@ import { useHydratedCart } from "@/contexts/CartContext";
 import { formatPrice } from "@/lib/products";
 
 function fieldClass() {
-  return "w-full border-0 border-b border-iron bg-transparent py-2 font-sans text-body-sm text-bone outline-none transition-colors focus:border-lime";
+  // text-body, not text-body-sm — iOS Safari auto-zooms on focus for any
+  // input under 16px, which text-body-sm's 15px would trigger.
+  return "w-full border-0 border-b border-iron bg-transparent py-3 font-sans text-body text-bone outline-none transition-colors focus:border-lime";
 }
 
 function FieldLabel({ htmlFor, children }: { htmlFor: string; children: React.ReactNode }) {
@@ -62,7 +64,7 @@ export default function CheckoutPage() {
         <section className="border-b border-iron">
           <div className="mx-auto flex max-w-[640px] flex-col items-center gap-4 px-5 py-24 text-center sm:px-8 lg:py-32">
             <p className="font-mono text-meta uppercase tracking-wide text-lime">Order confirmed</p>
-            <h1 className="font-display text-display-sm text-white">{orderNumber}</h1>
+            <h1 className="font-display text-[28px] text-white sm:text-display-sm">{orderNumber}</h1>
             <p className="max-w-md text-body-sm text-ash">
               Check your inbox. Your product will be delivered to {orderEmail} within the hour.
               Stripe integration coming soon — this is a demo.
@@ -130,6 +132,7 @@ export default function CheckoutPage() {
                 id="email"
                 name="email"
                 type="email"
+                inputMode="email"
                 required
                 autoComplete="email"
                 className={fieldClass()}
@@ -142,12 +145,13 @@ export default function CheckoutPage() {
                 id="phone"
                 name="phone"
                 type="tel"
+                inputMode="tel"
                 autoComplete="tel"
                 className={fieldClass()}
               />
             </div>
 
-            <SnakeCheckoutButton type="submit" className="w-full justify-center">
+            <SnakeCheckoutButton type="submit" className="min-h-[56px] w-full justify-center">
               Place order
             </SnakeCheckoutButton>
           </form>

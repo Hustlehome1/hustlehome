@@ -15,16 +15,16 @@ export default function Home() {
   return (
     <main>
       {/* ---- 1. Hero — full-viewport, one orchestrated entrance ---- */}
-      <section aria-labelledby="hero-heading" className="flex min-h-screen items-center border-b border-iron">
+      <section aria-labelledby="hero-heading" className="hero-min-h flex items-center border-b border-iron">
         <div className="mx-auto flex w-full max-w-[1280px] flex-col items-center px-5 py-24 text-center sm:px-8 lg:py-32">
-          <div className="hero-fade-1 w-full max-w-[900px]">
+          <div className="hero-fade-1 w-full max-w-[90vw] sm:max-w-[900px]">
             <Image
               src="/images/hero-featured.png"
               alt=""
               width={677}
               height={369}
               priority
-              sizes="(max-width: 900px) 100vw, 900px"
+              sizes="(max-width: 900px) 90vw, 900px"
               className="h-auto w-full"
             />
           </div>
@@ -42,11 +42,11 @@ export default function Home() {
             buy.
           </p>
 
-          <div className="hero-fade-4 mt-10 flex flex-wrap items-center justify-center gap-6">
-            <Link href="/products" className="btn-primary">
+          <div className="hero-fade-4 mt-10 flex w-full flex-col items-stretch gap-4 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-6">
+            <Link href="/products" className="btn-primary w-full sm:w-auto">
               Shop our supplier
             </Link>
-            <Link href="#faq" className="btn-underline">
+            <Link href="#faq" className="btn-underline block w-full text-center sm:inline-block sm:w-auto">
               How we grade
             </Link>
           </div>
@@ -81,7 +81,7 @@ export default function Home() {
               View full catalog
             </Link>
           </div>
-          <div className="mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 md:grid md:grid-cols-2 md:overflow-visible md:pb-0 lg:grid-cols-3">
+          <div className="scroll-snap-row mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 md:grid md:grid-cols-2 md:overflow-visible md:pb-0 lg:grid-cols-3">
             {BEST_SELLERS.map((product) => (
               <div key={product.id} className="w-[260px] shrink-0 snap-start sm:w-[280px] lg:w-auto">
                 <ProductCard product={product} />

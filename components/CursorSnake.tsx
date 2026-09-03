@@ -30,7 +30,11 @@ export default function CursorSnake() {
     }
     const pointerFine = window.matchMedia("(pointer: fine)").matches;
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    setEnabled(pointerFine && !reduceMotion);
+    // Belt-and-braces: some touch laptops/tablets report pointer:fine for
+    // an attached trackpad even though the primary input is touch, so also
+    // rule out anything that has ever exposed touch support.
+    const isTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+    setEnabled(pointerFine && !reduceMotion && !isTouch);
   }, [pathname]);
 
   useEffect(() => {

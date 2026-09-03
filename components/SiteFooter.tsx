@@ -14,26 +14,35 @@ export default function SiteFooter() {
           </div>
 
           <div className="flex flex-wrap gap-x-12 gap-y-8">
-            <nav aria-label="Footer" className="flex flex-col gap-3">
+            <nav aria-label="Footer" className="flex flex-col">
               <span className="font-mono text-meta uppercase tracking-wide text-ash">Shop</span>
-              <a href="/products" className="font-mono text-meta text-bone hover:text-lime">
+              <a
+                href="/products"
+                className="flex min-h-[44px] items-center font-mono text-meta text-bone hover:text-lime"
+              >
                 All products
               </a>
-              <a href="/reviews" className="font-mono text-meta text-bone hover:text-lime">
+              <a
+                href="/reviews"
+                className="flex min-h-[44px] items-center font-mono text-meta text-bone hover:text-lime"
+              >
                 Reviews
               </a>
-              <a href="/contact" className="font-mono text-meta text-bone hover:text-lime">
+              <a
+                href="/contact"
+                className="flex min-h-[44px] items-center font-mono text-meta text-bone hover:text-lime"
+              >
                 Contact
               </a>
             </nav>
 
-            <nav aria-label="Social" className="flex flex-col gap-3">
+            <nav aria-label="Social" className="flex flex-col">
               <span className="font-mono text-meta uppercase tracking-wide text-ash">Elsewhere</span>
               <a
                 href="https://www.tiktok.com/@hustlehome.xyz"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-mono text-meta text-bone hover:text-lime"
+                className="flex min-h-[44px] items-center font-mono text-meta text-bone hover:text-lime"
               >
                 TikTok
               </a>

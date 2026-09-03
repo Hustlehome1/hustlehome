@@ -9,7 +9,9 @@ const TOPICS = [
 ];
 
 function fieldClass() {
-  return "w-full border-0 border-b border-iron bg-transparent py-2 font-sans text-body-sm text-bone outline-none transition-colors focus:border-lime";
+  // text-body, not text-body-sm — iOS Safari auto-zooms on focus for any
+  // input under 16px, which text-body-sm's 15px would trigger.
+  return "w-full border-0 border-b border-iron bg-transparent py-3 font-sans text-body text-bone outline-none transition-colors focus:border-lime";
 }
 
 function FieldLabel({ htmlFor, children }: { htmlFor: string; children: React.ReactNode }) {
@@ -83,6 +85,7 @@ export default function ContactPage() {
                     id="email"
                     name="email"
                     type="email"
+                    inputMode="email"
                     required
                     autoComplete="email"
                     className={fieldClass()}
@@ -120,7 +123,7 @@ export default function ContactPage() {
                   />
                 </div>
 
-                <button type="submit" className="btn-primary">
+                <button type="submit" className="btn-primary min-h-[56px] w-full sm:w-auto">
                   Send message
                 </button>
               </form>
