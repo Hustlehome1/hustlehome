@@ -64,7 +64,15 @@ export default function Home() {
           </h2>
           <div className="mt-10 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3 lg:gap-4">
             {CATEGORIES.map((category) => (
-              <CategoryTile key={category.slug} category={category} />
+              <CategoryTile
+                key={category.slug}
+                category={category}
+                className={
+                  category.slug === "all-in-one"
+                    ? "order-first md:order-none md:col-span-2 lg:col-span-1 lg:col-start-2"
+                    : undefined
+                }
+              />
             ))}
           </div>
         </div>
@@ -81,9 +89,9 @@ export default function Home() {
               View full catalog
             </Link>
           </div>
-          <div className="scroll-snap-row mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 md:grid md:grid-cols-2 md:overflow-visible md:pb-0 lg:grid-cols-3">
+          <div className="scroll-snap-row mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4">
             {BEST_SELLERS.map((product) => (
-              <div key={product.id} className="w-[260px] shrink-0 snap-start sm:w-[280px] lg:w-auto">
+              <div key={product.id} className="w-[260px] shrink-0 snap-start sm:w-[280px]">
                 <ProductCard product={product} />
               </div>
             ))}

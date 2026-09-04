@@ -2,11 +2,17 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Category } from "@/lib/products";
 
-export default function CategoryTile({ category }: { category: Category }) {
+export default function CategoryTile({
+  category,
+  className,
+}: {
+  category: Category;
+  className?: string;
+}) {
   return (
     <Link
       href={`/products#${category.slug}`}
-      className="category-tile relative block aspect-square"
+      className={`category-tile relative block aspect-square ${className ?? ""}`}
     >
       <Image
         src={category.image}

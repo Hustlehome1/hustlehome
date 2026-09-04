@@ -4,7 +4,8 @@ export type CategorySlug =
   | "receipts"
   | "accessories"
   | "sportswear"
-  | "shoes";
+  | "shoes"
+  | "all-in-one";
 
 export type Category = {
   slug: CategorySlug;
@@ -20,6 +21,7 @@ export const CATEGORIES: Category[] = [
   { slug: "accessories", name: "Accessories", image: "/images/categories/cat-accessories.jpeg" },
   { slug: "sportswear", name: "Sportswear", image: "/images/categories/cat-sportswear.jpeg" },
   { slug: "shoes", name: "Shoes", image: "/images/categories/cat-shoes.jpeg" },
+  { slug: "all-in-one", name: "All In One", image: "/images/categories/cat-all-in-one.jpeg" },
 ];
 
 // Single source of truth for product data. UI everywhere (homepage, best
@@ -118,6 +120,25 @@ export const PRODUCTS: Product[] = [
     description: "Every verified shoe vendor in one bundle. Direct-from-source access for resellers.",
     type: "digital",
   },
+  {
+    id: "all-in-one-bundle",
+    category: "all-in-one",
+    name: "All In One Bundle",
+    priceCents: 4999,
+    originalPrice: 9999,
+    discountLabel: "50% OFF",
+    image: "/images/categories/cat-all-in-one.jpeg",
+    description:
+      "Every bundle we sell in one purchase — electronics, sportswear, shoes, accessories, receipts, and Vinted unbans. The full HustleHome stack.",
+    type: "digital",
+  },
 ];
 
-export const BEST_SELLERS = PRODUCTS;
+// Flagship first, everything else in catalog order — this is the row
+// buyers hit before they've picked a category, so the highest-value bundle
+// leads.
+const ALL_IN_ONE_PRODUCT = PRODUCTS.find((p) => p.id === "all-in-one-bundle")!;
+export const BEST_SELLERS = [
+  ALL_IN_ONE_PRODUCT,
+  ...PRODUCTS.filter((p) => p.id !== "all-in-one-bundle"),
+];

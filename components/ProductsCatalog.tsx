@@ -8,6 +8,7 @@ type Filter = "all" | CategorySlug;
 
 const FILTERS: { value: Filter; label: string }[] = [
   { value: "all", label: "All" },
+  { value: "all-in-one", label: "All In One" },
   { value: "electronics", label: "Electronics" },
   { value: "vinted-unbans", label: "Vinted Unbans" },
   { value: "receipts", label: "Receipts" },
