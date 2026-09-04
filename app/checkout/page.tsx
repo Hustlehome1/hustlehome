@@ -176,9 +176,14 @@ export default function CheckoutPage() {
                       <p className="truncate font-display text-body-sm text-bone">{product.name}</p>
                       <p className="mt-1 font-mono text-meta text-ash">Qty {quantity}</p>
                     </div>
-                    <p className="shrink-0 font-mono text-body-sm text-lime">
-                      {formatPrice(product.priceCents * quantity)}
-                    </p>
+                    <div className="price-row shrink-0 font-mono text-body-sm">
+                      <p className="text-lime">{formatPrice(product.priceCents * quantity)}</p>
+                      {product.originalPrice && (
+                        <p className="price-original">
+                          {formatPrice(product.originalPrice * quantity)}
+                        </p>
+                      )}
+                    </div>
                   </li>
                 ))}
               </ul>

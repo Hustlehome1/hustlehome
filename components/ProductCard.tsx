@@ -27,11 +27,17 @@ export default function ProductCard({ product }: { product: Product }) {
           sizes="(max-width: 640px) 60vw, (max-width: 1024px) 33vw, 20vw"
           className="object-cover"
         />
+        {product.discountLabel && <span className="sale-badge">{product.discountLabel}</span>}
       </div>
       <div className="flex flex-1 flex-col gap-3 p-5">
         <VerifiedTick />
         <h3 className="font-display text-h3 text-bone">{product.name}</h3>
-        <p className="font-mono text-body text-lime">{formatPrice(product.priceCents)}</p>
+        <div className="price-row font-mono">
+          <p className="text-body text-lime">{formatPrice(product.priceCents)}</p>
+          {product.originalPrice && (
+            <p className="price-original">{formatPrice(product.originalPrice)}</p>
+          )}
+        </div>
         <button
           type="button"
           onClick={handleAddToCart}

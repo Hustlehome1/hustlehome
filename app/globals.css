@@ -207,6 +207,39 @@
     border-color: var(--lime);
   }
 
+  /* ---- Sale badge — pill on the product image's top-right corner. ---- */
+  .sale-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 1;
+    background-color: var(--lime);
+    color: #000000;
+    font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    padding: 4px 8px;
+    border-radius: 2px;
+    pointer-events: none;
+  }
+  .product-card:hover .sale-badge {
+    animation: badgePulse 400ms ease;
+  }
+
+  /* ---- Sale price row — real price + muted strikethrough original. --- */
+  .price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .price-original {
+    color: var(--ash);
+    text-decoration: line-through;
+    font-size: 13px;
+  }
+
   /* ---- Marquee ticker — continuous scroll, pauses on hover. ---------- */
   .marquee-track {
     animation: marquee 40s linear infinite;
@@ -396,6 +429,18 @@
   }
 }
 
+@keyframes badgePulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 /* All motion is optional — honor the OS setting. Everything collapses to
    an instant state change: no transforms, no transitions, no animation. */
 @media (prefers-reduced-motion: reduce) {
@@ -439,7 +484,8 @@
   .hero-fade-2,
   .hero-fade-3,
   .hero-fade-4,
-  .btn-add-pulse {
+  .btn-add-pulse,
+  .product-card:hover .sale-badge {
     animation: none;
     opacity: 1;
     transform: none;

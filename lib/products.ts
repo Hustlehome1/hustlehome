@@ -35,6 +35,9 @@ export type Product = {
   category: CategorySlug;
   name: string;
   priceCents: number;
+  // Display-only. Not used in any calculation, cart total, or payment. UK/EU sellers should ensure this reflects a genuine reference price under Omnibus Directive rules.
+  originalPrice?: number;
+  discountLabel?: string;
   image: string;
   description: string;
   type: "digital";
@@ -50,6 +53,8 @@ export const PRODUCTS: Product[] = [
     category: "electronics",
     name: "Electronics Bundle",
     priceCents: 100,
+    originalPrice: 9999,
+    discountLabel: "99% OFF",
     image: "/images/categories/cat-electronics.jpeg",
     description:
       "Every verified electronics vendor in one bundle — Dyson, PlayStation, Google Review cards, and more. Delivered instantly.",
@@ -60,6 +65,8 @@ export const PRODUCTS: Product[] = [
     category: "vinted-unbans",
     name: "Vinted Unban Bundle",
     priceCents: 499,
+    originalPrice: 998,
+    discountLabel: "50% OFF",
     image: "/images/categories/cat-vinted.jpeg",
     description:
       "Save yourself the time and stress of worrying about a mistake from the company's side. Vinted bans are extremely common — full unban methods included.",
@@ -70,6 +77,8 @@ export const PRODUCTS: Product[] = [
     category: "receipts",
     name: "Receipt Bundle",
     priceCents: 2499,
+    originalPrice: 4998,
+    discountLabel: "50% OFF",
     image: "/images/categories/cat-receipts.jpeg",
     description: "Never get scammed again. Full breakdown of how to spot fake receipts across every major brand.",
     type: "digital",
@@ -79,6 +88,8 @@ export const PRODUCTS: Product[] = [
     category: "accessories",
     name: "Accessories Bundle",
     priceCents: 1799,
+    originalPrice: 3598,
+    discountLabel: "50% OFF",
     image: "/images/categories/cat-accessories.jpeg",
     description:
       "Every verified accessories vendor in one bundle — BMW parts, OEM caps, and more. Wholesale-tier access.",
@@ -89,6 +100,8 @@ export const PRODUCTS: Product[] = [
     category: "sportswear",
     name: "Sportswear Bundle",
     priceCents: 2499,
+    originalPrice: 4998,
+    discountLabel: "50% OFF",
     image: "/images/categories/cat-sportswear.jpeg",
     description:
       "Every verified sportswear vendor in one bundle — Asics, tracksuits, and full drops. Reseller pricing throughout.",
@@ -99,6 +112,8 @@ export const PRODUCTS: Product[] = [
     category: "shoes",
     name: "Shoes Bundle",
     priceCents: 1499,
+    originalPrice: 2998,
+    discountLabel: "50% OFF",
     image: "/images/categories/cat-shoes.jpeg",
     description: "Every verified shoe vendor in one bundle. Direct-from-source access for resellers.",
     type: "digital",

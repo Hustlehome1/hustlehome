@@ -122,9 +122,12 @@ export default function CartDrawer() {
                         </p>
                         <VerifiedTick className="shrink-0" />
                       </div>
-                      <p className="mt-1 font-mono text-body-sm text-lime">
-                        {formatPrice(product.priceCents)}
-                      </p>
+                      <div className="price-row mt-1 font-mono text-body-sm">
+                        <p className="text-lime">{formatPrice(product.priceCents)}</p>
+                        {product.originalPrice && (
+                          <p className="price-original">{formatPrice(product.originalPrice)}</p>
+                        )}
+                      </div>
                       <div className="-ml-2.5 mt-1 flex items-center gap-1 font-mono text-body-sm">
                         <button
                           type="button"
