@@ -8,7 +8,7 @@ export type ReviewScreenshot = {
   reportNo: string;
 };
 
-// 9 Instagram DM screenshots — unedited, spread across the last two months.
+// 8 Instagram DM screenshots — unedited, spread across the last two months.
 export const REVIEW_SCREENSHOTS: ReviewScreenshot[] = [
   {
     id: "review-09",
@@ -72,15 +72,6 @@ export const REVIEW_SCREENSHOTS: ReviewScreenshot[] = [
     alt: "Instagram DM from a buyer sharing photos of their unit after delivery",
     receivedDate: "2026-07-28",
     reportNo: "HH-R-2008",
-  },
-  {
-    id: "review-05",
-    image: "/images/reviews/review-05.jpg",
-    width: 768,
-    height: 1328,
-    alt: "Instagram DM thread with a buyer discussing a repeat purchase",
-    receivedDate: "2026-07-14",
-    reportNo: "HH-R-1994",
   },
   {
     id: "review-06",
