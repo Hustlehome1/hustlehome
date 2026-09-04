@@ -8,8 +8,35 @@ export type ReviewScreenshot = {
   reportNo: string;
 };
 
-// 6 Instagram DM screenshots — unedited, spread across the last two months.
+// 9 Instagram DM screenshots — unedited, spread across the last two months.
 export const REVIEW_SCREENSHOTS: ReviewScreenshot[] = [
+  {
+    id: "review-09",
+    image: "/images/reviews/review-09.jpg",
+    width: 1360,
+    height: 752,
+    alt: "Instagram DM from a buyer confirming the Asics supplier and their full order set",
+    receivedDate: "2026-09-04",
+    reportNo: "HH-R-2058",
+  },
+  {
+    id: "review-08",
+    image: "/images/reviews/review-08.jpg",
+    width: 992,
+    height: 1040,
+    alt: "Instagram DM from a buyer thanking the vendor for turning a profit on resale",
+    receivedDate: "2026-09-02",
+    reportNo: "HH-R-2052",
+  },
+  {
+    id: "review-07",
+    image: "/images/reviews/review-07.jpg",
+    width: 1056,
+    height: 976,
+    alt: "Instagram DM from a buyer vouching for a pair of shoes they received",
+    receivedDate: "2026-08-31",
+    reportNo: "HH-R-2047",
+  },
   {
     id: "review-01",
     image: "/images/reviews/review-01.jpg",
