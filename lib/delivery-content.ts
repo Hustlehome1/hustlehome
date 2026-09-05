@@ -16,9 +16,7 @@ Browse their full catalog — phones, tech accessories, and more at wholesale pr
 
   "vinted-unban-bundle": `📱 Vinted Unban Guide
 
-This guide is being finalized — full steps aren't published here yet.
-
-If you need this urgently, reach out via the contact page and reference your order and we'll follow up directly.`,
+head over to vinted.com using 4g only log in on the browser once logged in click share - add to home screen NOTE do not conntect to ur home wifi we recomed using a spare phone.`,
 
   "receipt-bundle": `🧾 Receipt Authentication Guide
 

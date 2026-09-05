@@ -62,7 +62,7 @@ export const PRODUCTS: Product[] = [
     description:
       "Every verified electronics vendor in one bundle — Dyson, PlayStation, Google Review cards, and more. Delivered instantly.",
     type: "digital",
-    stripePriceId: "price_1UCIBrAKwDcQfm2H5WAeDmCJ",
+    stripePriceId: "price_1UCGixAKwDcQfm2HWKIGsLH2",
   },
   {
     id: "vinted-unban-bundle",
@@ -75,7 +75,7 @@ export const PRODUCTS: Product[] = [
     description:
       "Save yourself the time and stress of worrying about a mistake from the company's side. Vinted bans are extremely common — full unban methods included.",
     type: "digital",
-    stripePriceId: "price_1UCIC5AKwDcQfm2HVNAu1KVO",
+    stripePriceId: "price_1UCGjBAKwDcQfm2Hau5m768L",
   },
   {
     id: "receipt-bundle",
@@ -87,7 +87,7 @@ export const PRODUCTS: Product[] = [
     image: "/images/categories/cat-receipts.jpeg",
     description: "Never get scammed again. Full breakdown of how to spot fake receipts across every major brand.",
     type: "digital",
-    stripePriceId: "price_1UCICMAKwDcQfm2HWyZgxcfK",
+    stripePriceId: "price_1UCGjPAKwDcQfm2HXlpnZWQY",
   },
   {
     id: "accessories-bundle",
@@ -100,7 +100,7 @@ export const PRODUCTS: Product[] = [
     description:
       "Every verified accessories vendor in one bundle — BMW parts, OEM caps, and more. Wholesale-tier access.",
     type: "digital",
-    stripePriceId: "price_1UCICZAKwDcQfm2H2LL516Ul",
+    stripePriceId: "price_1UCGjeAKwDcQfm2HqmdAGGiu",
   },
   {
     id: "sportswear-bundle",
@@ -113,7 +113,7 @@ export const PRODUCTS: Product[] = [
     description:
       "Every verified sportswear vendor in one bundle — Asics, tracksuits, and full drops. Reseller pricing throughout.",
     type: "digital",
-    stripePriceId: "price_1UCICkAKwDcQfm2HKFhpu59P",
+    stripePriceId: "price_1UCGk3AKwDcQfm2HZtua6fkf",
   },
   {
     id: "shoes-bundle",
@@ -125,7 +125,7 @@ export const PRODUCTS: Product[] = [
     image: "/images/categories/cat-shoes.jpeg",
     description: "Every verified shoe vendor in one bundle. Direct-from-source access for resellers.",
     type: "digital",
-    stripePriceId: "price_1UCICvAKwDcQfm2Hwg3gakhb",
+    stripePriceId: "price_1UCGkHAKwDcQfm2HqiBuvE7G",
   },
   {
     id: "all-in-one-bundle",
@@ -138,7 +138,7 @@ export const PRODUCTS: Product[] = [
     description:
       "Every bundle we sell in one purchase — electronics, sportswear, shoes, accessories, receipts, and Vinted unbans. The full HustleHome stack.",
     type: "digital",
-    stripePriceId: "price_1UCID7AKwDcQfm2HuHwsU4Ix",
+    stripePriceId: "price_1UCGkXAKwDcQfm2HKn0p4hMZ",
   },
 ];
 
