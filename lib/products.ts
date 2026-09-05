@@ -55,14 +55,14 @@ export const PRODUCTS: Product[] = [
     id: "electronics-bundle",
     category: "electronics",
     name: "Electronics Bundle",
-    priceCents: 100,
+    priceCents: 499,
     originalPrice: 9999,
     discountLabel: "99% OFF",
     image: "/images/categories/cat-electronics.jpeg",
     description:
       "Every verified electronics vendor in one bundle — Dyson, PlayStation, Google Review cards, and more. Delivered instantly.",
     type: "digital",
-    stripePriceId: "price_1UCGixAKwDcQfm2HWKIGsLH2",
+    stripePriceId: "price_1UCJsgAKwDcQfm2HDDLuKDRS",
   },
   {
     id: "vinted-unban-bundle",
