@@ -31,6 +31,7 @@ export async function POST(request: Request) {
       metadata: {
         productIds: JSON.stringify(productIds),
       },
+      managed_payments: { enabled: false },
     });
 
     return NextResponse.json({ url: session.url });
