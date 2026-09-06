@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import ReviewsGallery from "@/components/ReviewsGallery";
+import ReviewsGrid from "@/components/ReviewsGrid";
 import Star from "@/components/Star";
 import TrustpilotButton from "@/components/TrustpilotButton";
 
 export const metadata: Metadata = {
   title: "Reviews — HustleHome",
   description:
-    "Real Instagram DMs from HustleHome buyers — unedited, uncurated, unpaid.",
+    "Real feedback from real HustleHome buyers — every review is from a verified purchase.",
 };
 
 export default function ReviewsPage() {
@@ -27,7 +27,7 @@ export default function ReviewsPage() {
                 </div>
               </div>
               <p className="mt-4 max-w-xl text-body-sm text-ash">
-                Real DMs from real buyers. Not curated. Not paid.
+                Real feedback from real buyers. Every review is from a verified purchase.
               </p>
             </div>
             <TrustpilotButton className="self-start" />
@@ -35,9 +35,9 @@ export default function ReviewsPage() {
         </div>
       </section>
 
-      <section aria-label="Review screenshots">
+      <section aria-label="Buyer reviews">
         <div className="mx-auto max-w-[1280px] px-5 py-20 sm:px-8 lg:py-[120px]">
-          <ReviewsGallery />
+          <ReviewsGrid />
         </div>
       </section>
     </main>

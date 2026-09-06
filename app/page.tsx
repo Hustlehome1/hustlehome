@@ -4,12 +4,13 @@ import CategoryTile from "@/components/CategoryTile";
 import FaqAccordion from "@/components/FaqAccordion";
 import Marquee from "@/components/Marquee";
 import ProductCard from "@/components/ProductCard";
-import Star from "@/components/Star";
+import ReviewCard from "@/components/ReviewCard";
 import TrustpilotButton from "@/components/TrustpilotButton";
 import { BEST_SELLERS, CATEGORIES } from "@/lib/products";
 import { REVIEWS } from "@/lib/reviews";
 
-const STRIP_REVIEWS = REVIEWS.slice(0, 3);
+// The three most energetic reviews — Jake, Tyler, Oisin.
+const STRIP_REVIEWS = [REVIEWS[0], REVIEWS[4], REVIEWS[7]];
 
 export default function Home() {
   return (
@@ -105,21 +106,9 @@ export default function Home() {
           <h2 id="reviews-heading" className="font-display text-h1 text-white">
             What buyers say
           </h2>
-          <div className="mt-10 grid gap-10 sm:grid-cols-3 sm:gap-8">
+          <div className="mt-10 grid gap-6 sm:grid-cols-3 sm:gap-6">
             {STRIP_REVIEWS.map((review) => (
-              <div key={review.receipt}>
-                <div className="flex gap-1">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="h-4 w-4 text-lime" />
-                  ))}
-                </div>
-                <p className="mt-4 font-display text-h3 italic leading-snug text-bone">
-                  “{review.quote}”
-                </p>
-                <p className="mt-4 font-mono text-meta text-ash">
-                  {review.name}, {review.city}
-                </p>
-              </div>
+              <ReviewCard key={review.name} review={review} snake={false} compact />
             ))}
           </div>
           <div className="mt-10 flex flex-wrap items-center gap-6">

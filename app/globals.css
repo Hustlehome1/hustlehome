@@ -273,15 +273,15 @@
     transform: rotate(45deg);
   }
 
-  /* ---- Review screenshot — lime border + lift on hover. --------------- */
-  .review-shot {
+  /* ---- Review card — lime border on hover; snake trace is its own layer. */
+  .review-card {
     border: 1px solid var(--iron);
     background-color: var(--graphite);
-    transition: border-color 200ms ease, transform 200ms ease;
+    border-radius: 4px;
+    transition: border-color 200ms ease;
   }
-  .review-shot:hover {
+  .review-card:hover {
     border-color: var(--lime);
-    transform: translateY(-2px);
   }
 
   /* ---- Live-state dot — the one continuous UI animation besides the
@@ -459,7 +459,7 @@
   .faq-row,
   .faq-panel,
   .faq-icon,
-  .review-shot,
+  .review-card,
   .cart-badge,
   .cart-backdrop,
   .cart-drawer,
@@ -471,9 +471,6 @@
   }
   .category-tile:hover img,
   .category-tile:focus-visible img {
-    transform: none;
-  }
-  .review-shot:hover {
     transform: none;
   }
   .marquee-track {
