@@ -133,14 +133,14 @@ export const PRODUCTS: Product[] = [
     id: "all-in-one-bundle",
     category: "all-in-one",
     name: "All In One Bundle",
-    priceCents: 4999,
-    originalPrice: 9999,
+    priceCents: 2499,
+    originalPrice: 4998,
     discountLabel: "50% OFF",
     image: "/images/categories/cat-all-in-one.jpeg",
     description:
       "Every bundle we sell in one purchase — electronics, sportswear, shoes, accessories, receipts, and Vinted unbans. The full HustleHome stack.",
     type: "digital",
-    stripePriceId: "price_1UCGkXAKwDcQfm2HKn0p4hMZ",
+    stripePriceId: "price_1UChggAKwDcQfm2HMqfgytzV",
   },
   {
     id: "starter-bundle",
