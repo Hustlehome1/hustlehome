@@ -12,6 +12,23 @@ import { REVIEWS } from "@/lib/reviews";
 // The three most energetic reviews — Jake, Tyler, Oisin.
 const STRIP_REVIEWS = [REVIEWS[0], REVIEWS[4], REVIEWS[7]];
 
+// Flagship and entry-level bundles lead the homepage grid; everything else
+// follows in catalog order. Fills a 3x3 grid with a "more coming soon" tile
+// in the 9th slot.
+const HOME_CATEGORY_ORDER = [
+  "all-in-one",
+  "starter",
+  "electronics",
+  "vinted-unbans",
+  "receipts",
+  "accessories",
+  "sportswear",
+  "shoes",
+] as const;
+const HOME_CATEGORIES = HOME_CATEGORY_ORDER.map(
+  (slug) => CATEGORIES.find((c) => c.slug === slug)!
+);
+
 export default function Home() {
   return (
     <main>
@@ -64,17 +81,18 @@ export default function Home() {
             Shop by category
           </h2>
           <div className="mt-10 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3 lg:gap-4">
-            {CATEGORIES.map((category) => (
-              <CategoryTile
-                key={category.slug}
-                category={category}
-                className={
-                  category.slug === "all-in-one"
-                    ? "order-first md:order-none md:col-span-2 lg:col-span-1 lg:col-start-2"
-                    : undefined
-                }
-              />
+            {HOME_CATEGORIES.map((category) => (
+              <CategoryTile key={category.slug} category={category} />
             ))}
+            <div
+              className="category-tile category-tile-soon relative flex aspect-square flex-col items-center justify-center gap-2 border border-iron bg-graphite text-center"
+              aria-hidden="true"
+            >
+              <span className="font-display text-h3 text-bone">More</span>
+              <span className="font-mono text-meta uppercase tracking-wide text-ash">
+                Coming soon
+              </span>
+            </div>
           </div>
         </div>
       </section>

@@ -5,7 +5,8 @@ export type CategorySlug =
   | "accessories"
   | "sportswear"
   | "shoes"
-  | "all-in-one";
+  | "all-in-one"
+  | "starter";
 
 export type Category = {
   slug: CategorySlug;
@@ -22,6 +23,7 @@ export const CATEGORIES: Category[] = [
   { slug: "sportswear", name: "Sportswear", image: "/images/categories/cat-sportswear.jpeg" },
   { slug: "shoes", name: "Shoes", image: "/images/categories/cat-shoes.jpeg" },
   { slug: "all-in-one", name: "All In One", image: "/images/categories/cat-all-in-one.jpeg" },
+  { slug: "starter", name: "Starter", image: "/images/categories/cat-starter.jpeg" },
 ];
 
 // Single source of truth for product data. UI everywhere (homepage, best
@@ -55,14 +57,14 @@ export const PRODUCTS: Product[] = [
     id: "electronics-bundle",
     category: "electronics",
     name: "Electronics Bundle",
-    priceCents: 499,
-    originalPrice: 9999,
-    discountLabel: "99% OFF",
+    priceCents: 999,
+    originalPrice: 1998,
+    discountLabel: "50% OFF",
     image: "/images/categories/cat-electronics.jpeg",
     description:
       "Every verified electronics vendor in one bundle — Dyson, PlayStation, Google Review cards, and more. Delivered instantly.",
     type: "digital",
-    stripePriceId: "price_1UCJsgAKwDcQfm2HDDLuKDRS",
+    stripePriceId: "price_1UChJzAKwDcQfm2H9HYUEBTE",
   },
   {
     id: "vinted-unban-bundle",
@@ -140,13 +142,28 @@ export const PRODUCTS: Product[] = [
     type: "digital",
     stripePriceId: "price_1UCGkXAKwDcQfm2HKn0p4hMZ",
   },
+  {
+    id: "starter-bundle",
+    category: "starter",
+    name: "Starter Reseller Bundle",
+    priceCents: 699,
+    originalPrice: 1398,
+    discountLabel: "50% OFF",
+    image: "/images/categories/cat-starter.jpeg",
+    description:
+      "Stop wasting time and money trying to find the right suppliers. Your starter bundle with verified vendors to get you reselling from day one.",
+    type: "digital",
+    stripePriceId: "price_1UChKQAKwDcQfm2HPXuiDTdv",
+  },
 ];
 
-// Flagship first, everything else in catalog order — this is the row
-// buyers hit before they've picked a category, so the highest-value bundle
-// leads.
+// Flagship first, starter bundle second (entry-level upsell), everything
+// else in catalog order — this is the row buyers hit before they've picked
+// a category, so the highest-value and lowest-friction bundles lead.
 const ALL_IN_ONE_PRODUCT = PRODUCTS.find((p) => p.id === "all-in-one-bundle")!;
+const STARTER_PRODUCT = PRODUCTS.find((p) => p.id === "starter-bundle")!;
 export const BEST_SELLERS = [
   ALL_IN_ONE_PRODUCT,
-  ...PRODUCTS.filter((p) => p.id !== "all-in-one-bundle"),
+  STARTER_PRODUCT,
+  ...PRODUCTS.filter((p) => p.id !== "all-in-one-bundle" && p.id !== "starter-bundle"),
 ];

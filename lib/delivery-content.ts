@@ -57,6 +57,33 @@ HOW TO ORDER:
 
 NOTE: Once purchased, it ships to the Superbuy warehouse first, then you ship it to yourself.`,
 
+  "starter-bundle": `🚀 Starter Reseller Bundle
+
+Your verified starter suppliers:
+
+Apple CarPlay:
+https://detail.1688.com/offer/795870312637.html
+
+Dior Sauvage:
+https://weidian.com/item.html?itemID=5163056193
+
+Google Review Cards:
+https://detail.1688.com/offer/1049355436502.html
+
+Venum Boxing Gloves:
+https://detail.1688.com/offer/643603787551.html
+
+Dunlop Rackets:
+https://item.taobao.com/item.htm?id=728615690943
+
+Apple Airpods:
+http://www.baoximan.com/Dyson-Supersonic%E2%84%A2-Hair-Dryer-p220692.html?parent_user_id=18562544&utm_source=sns_share&utm_medium=share_url
+
+Dyson:
+http://www.baoximan.com/Dyson-Supersonic%E2%84%A2-Hair-Dryer-p220692.html?parent_user_id=18562544&utm_source=sns_share&utm_medium=share_url
+
+Welcome to HustleHome. Start flipping.`,
+
   "all-in-one-bundle": `🏆 ALL IN ONE BUNDLE — Full Vendor List
 
 ━━━ FREE SUPPLIER ━━━
