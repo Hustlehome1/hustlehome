@@ -18,6 +18,7 @@ const STRIP_REVIEWS = [REVIEWS[0], REVIEWS[4], REVIEWS[7]];
 const HOME_CATEGORY_ORDER = [
   "all-in-one",
   "starter",
+  "reselling-guide",
   "electronics",
   "vinted-unbans",
   "receipts",

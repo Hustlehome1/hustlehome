@@ -84,6 +84,14 @@ http://www.baoximan.com/Dyson-Supersonic%E2%84%A2-Hair-Dryer-p220692.html?parent
 
 Welcome to HustleHome. Start flipping.`,
 
+  "reselling-guide": `📖 Reselling Guide
+
+To receive your guide, DM us on TikTok with the word "PAID":
+
+https://www.tiktok.com/@hustlehome.xyz
+
+We'll send your guide directly. Response time: usually within 1 hour.`,
+
   "all-in-one-bundle": `🏆 ALL IN ONE BUNDLE — Full Vendor List
 
 ━━━ FREE SUPPLIER ━━━

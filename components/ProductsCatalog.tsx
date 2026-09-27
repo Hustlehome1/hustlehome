@@ -10,6 +10,7 @@ const FILTERS: { value: Filter; label: string }[] = [
   { value: "all", label: "All" },
   { value: "all-in-one", label: "All In One" },
   { value: "starter", label: "Starter" },
+  { value: "reselling-guide", label: "Reselling Guide" },
   { value: "electronics", label: "Electronics" },
   { value: "vinted-unbans", label: "Vinted Unbans" },
   { value: "receipts", label: "Receipts" },

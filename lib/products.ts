@@ -6,7 +6,8 @@ export type CategorySlug =
   | "sportswear"
   | "shoes"
   | "all-in-one"
-  | "starter";
+  | "starter"
+  | "reselling-guide";
 
 export type Category = {
   slug: CategorySlug;
@@ -24,6 +25,7 @@ export const CATEGORIES: Category[] = [
   { slug: "shoes", name: "Shoes", image: "/images/categories/cat-shoes.jpeg" },
   { slug: "all-in-one", name: "All In One", image: "/images/categories/cat-all-in-one.jpeg" },
   { slug: "starter", name: "Starter", image: "/images/categories/cat-starter.jpeg" },
+  { slug: "reselling-guide", name: "Reselling Guide", image: "/images/categories/cat-reselling-guide.png" },
 ];
 
 // Single source of truth for product data. UI everywhere (homepage, best
@@ -154,6 +156,18 @@ export const PRODUCTS: Product[] = [
       "Stop wasting time and money trying to find the right suppliers. Your starter bundle with verified vendors to get you reselling from day one.",
     type: "digital",
     stripePriceId: "price_1UGk8xAKwDcQfm2Hm33uqwlD",
+  },
+  {
+    id: "reselling-guide",
+    category: "reselling-guide",
+    name: "Reselling Guide",
+    priceCents: 999,
+    originalPrice: 1998,
+    discountLabel: "50% OFF",
+    image: "/images/categories/cat-reselling-guide.png",
+    description: "The complete guide to starting and scaling your reselling business.",
+    type: "digital",
+    stripePriceId: "price_1UKJwTAKwDcQfm2Hou4bDwUP",
   },
 ];
 
